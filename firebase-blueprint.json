@@ -1,0 +1,61 @@
+{
+  "entities": {
+    "UserProfile": {
+      "title": "UserProfile",
+      "description": "Stores user progress and profile information.",
+      "type": "object",
+      "properties": {
+        "email": {
+          "type": "string",
+          "format": "email",
+          "description": "User's email address."
+        },
+        "displayName": {
+          "type": "string",
+          "description": "User's display name."
+        },
+        "photoURL": {
+          "type": "string",
+          "description": "URL to the user's profile photo."
+        },
+        "xp": {
+          "type": "number",
+          "description": "Total experience points earned."
+        },
+        "completedModules": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "description": "List of completed module IDs."
+        },
+        "completedCTFs": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "description": "List of completed CTF challenge IDs."
+        },
+        "role": {
+          "type": "string",
+          "enum": ["student", "admin"],
+          "description": "User's role in the platform."
+        },
+        "createdAt": {
+          "type": "string",
+          "format": "date-time",
+          "description": "Timestamp when the user profile was created."
+        }
+      },
+      "required": ["email", "xp", "completedModules", "completedCTFs", "role", "createdAt"]
+    }
+  },
+  "firestore": {
+    "/users/{userId}": {
+      "schema": {
+        "$ref": "#/entities/UserProfile"
+      },
+      "description": "Collection of user profiles."
+    }
+  }
+}

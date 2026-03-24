@@ -1,0 +1,5 @@
+{
+  "name": "KaliAcademy Admin",
+  "description": "Dashboard de Administração para monitoramento em tempo real de recursos e containers.",
+  "requestFramePermissions": []
+}
